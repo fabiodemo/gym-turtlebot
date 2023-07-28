@@ -203,9 +203,12 @@ class TurtleBot3Env(gym.Env):
         return reward
 
     def set_ang_vel(self, action):
+        print(f'action: {action}, and type: {type(action)}')
         if self.continuous:
+            print(f'continuous: {action}')
             self.ang_vel = action
         else:
+            print(f'else: {action}, self.actions: {self.actions}')            
             self.ang_vel = self.actions[action]
 
     def step(self, action):
